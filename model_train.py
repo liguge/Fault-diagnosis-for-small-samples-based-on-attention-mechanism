@@ -147,12 +147,8 @@ model = Net().to(device)
 # url = tb.launch()
 summary(model, input_size=(1, 1024))  # 输出模型具有的参数
 # criterion = nn.CrossEntropyLoss()
-# from loss import GHMCC
-# criterion = GHMCC()
-# from LSR_Loss import CrossEntropyLoss_LSR
+
 criterion = LSR()
-# from class_balanced_loss import CB_loss
-# criterion = CB_loss()
 # criterion = CrossEntropyLoss_LSR(device)
 # from adabound import AdaBound
 # optimizer = AdaBound(model.parameters(), lr=0.001, weight_decay=0.0001, amsbound=True)
