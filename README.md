@@ -27,3 +27,9 @@ pages={42013-42026},
 doi={10.1109/ACCESS.2021.3064962},  
 url = {https://ieeexplore.ieee.org/document/9374403},  
 }
+
+# Environment
+
+pyotrch 1.10.0  
+python 3.8  
+cuda 10.2  
