@@ -30,6 +30,6 @@ url = {https://ieeexplore.ieee.org/document/9374403},
 
 # Environment
 
-pyotrch 1.10.0  
+pytorch 1.10.0  
 python 3.8  
 cuda 10.2  
