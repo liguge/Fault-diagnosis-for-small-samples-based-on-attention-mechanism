@@ -13,11 +13,11 @@ year = {2022},
 issn = {0263-2241},  
 doi = {https://doi.org/10.1016/j.measurement.2021.110242},  
 url = {https://www.sciencedirect.com/science/article/pii/S0263224121011507},  
-author = {Xin Zhang and Chao He and Yanping Lu and Biao Chen and Le Zhu and Li Zhang}  
+author = {Xin Zhang and **Chao He** and Yanping Lu and Biao Chen and Le Zhu and Li Zhang}  
 }
 
 @ARTICLE{9374403,  
-author={Luo, Hao and He, Chao and Zhou, Jianing and Zhang, Li},  
+author={Luo, Hao and **He, Chao** and Zhou, Jianing and Zhang, Li},  
 journal={IEEE Access},   
 title={Rolling Bearing Sub-Health Recognition via Extreme Learning Machine Based on Deep Belief Network Optimized by Improved Fireworks},   
 year={2021},  
