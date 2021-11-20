@@ -2,7 +2,7 @@
 Fault diagnosis for small samples based on attention mechanism
 https://doi.org/10.1016/j.measurement.2021.110242
 
-如果这个项目帮助到你 欢迎cite：
+# If this project helps you, please cite:
 
 @article{ZHANG2022110242,  
 title = {Fault diagnosis for small samples based on attention mechanism},  
