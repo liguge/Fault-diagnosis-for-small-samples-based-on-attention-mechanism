@@ -75,10 +75,7 @@ Data = Data()
 data = Data.data
 label = Data.label
 y = label.astype("int32")
-# # lb = LabelBinarizer()
-# # y = lb.fit_transform(label)   #标签二值化
-# # dataNew = "G:\\研究生资料\\研二\\实践code(pytorch)\\datanew.mat"
-# # scio.savemat(dataNew,mdict={'data':data,'label':label})
+
 # ##############################数据归一化处理###########################
 ss = MinMaxScaler()
 data = data.T
