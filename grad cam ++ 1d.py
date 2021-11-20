@@ -2,79 +2,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
-from Acon1 import MetaAconC
-class CoordAtt(nn.Module):
-    def __init__(self, inp, oup, reduction=32):
-        super(CoordAtt, self).__init__()
-        # self.pool_w = nn.AdaptiveAvgPool1d(1)
-        self.pool_w = nn.AdaptiveMaxPool1d(1)
-        mip = max(6, inp // reduction)
-        self.conv1 = nn.Conv1d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1 = nn.BatchNorm1d(mip, track_running_stats=True)
-        self.act = MetaAconC(mip)
-        self.conv_w = nn.Conv1d(mip, oup, kernel_size=1, stride=1, padding=0)
 
-    def forward(self, x):
-        identity = x
-        n, c, w = x.size()
-        x_w = self.pool_w(x)
-        y = torch.cat([identity, x_w], dim=2)
-        y = self.conv1(y)
-        y = self.bn1(y)
-        y = self.act(y)
-        x_ww, x_c = torch.split(y, [w, 1], dim=2)
-        a_w = self.conv_w(x_ww)
-        a_w = a_w.sigmoid()
-        out = identity * a_w
-        return out
-
-class Net1(nn.Module):
-    def __init__(self):
-        super(Net1, self).__init__()
-        self.p1_1 = nn.Sequential(nn.Conv1d(1, 50, kernel_size=18, stride=2),
-                                  nn.BatchNorm1d(50, track_running_stats=True),
-                                  MetaAconC(50))
-        self.p1_2 = nn.Sequential(nn.Conv1d(50, 30, kernel_size=10, stride=2),
-                                  nn.BatchNorm1d(30, track_running_stats=True),
-                                  MetaAconC(30))
-        self.p1_3 = nn.MaxPool1d(2, 2)
-        self.p2_1 = nn.Sequential(nn.Conv1d(1, 50, kernel_size=6, stride=1),
-                                  nn.BatchNorm1d(50, track_running_stats=True),
-                                  MetaAconC(50))
-        self.p2_2 = nn.Sequential(nn.Conv1d(50, 40, kernel_size=6, stride=1),
-                                  nn.BatchNorm1d(40, track_running_stats=True),
-                                  MetaAconC(40))
-        self.p2_3 = nn.MaxPool1d(2, 2)
-        self.p2_4 = nn.Sequential(nn.Conv1d(40, 30, kernel_size=6, stride=1),
-                                  nn.BatchNorm1d(30, track_running_stats=True),
-                                  MetaAconC(30))
-        self.p2_5 = nn.Sequential(nn.Conv1d(30, 30, kernel_size=6, stride=2),
-                                  nn.BatchNorm1d(30, track_running_stats=True),
-                                  MetaAconC(30))
-        self.p2_6 = nn.MaxPool1d(2, 2)
-        self.p3_0 = CoordAtt(30, 30)
-        self.p3_1 = nn.Sequential(nn.GRU(124, 64, bidirectional=True))  #
-        # self.p3_2 = nn.Sequential(nn.LSTM(150, 60))
-        self.p3_3 = nn.Sequential(nn.AdaptiveAvgPool1d(1))
-        self.p4 = nn.Sequential(nn.Linear(30, 10))
-
-    def forward(self, x):
-        p1 = self.p1_3(self.p1_2(self.p1_1(x)))
-        p2 = self.p2_6(self.p2_5(self.p2_4(self.p2_3(self.p2_2(self.p2_1(x))))))
-        encode = torch.mul(p1, p2)
-        # p3 = self.p3_2(self.p3_1(encode))
-        p3_0 = self.p3_0(encode).permute(1, 0, 2)
-        p3_2, _ = self.p3_1(p3_0)
-        # p3_2, _ = self.p3_2(p3_1)
-        p3_11 = p3_2.permute(1, 0, 2)  # 取得最后的一次输出
-        p3_12 = self.p3_3(p3_11).squeeze()
-        # p3_11 = h1.permute(1,0,2)
-        # p3 = self.p3(encode)
-        # p3 = p3.squeeze()
-        # p4 = self.p4(p3_11)  # LSTM的输入格式(seq_len, batch, input_size)
-        # p4 = self.p4(encode)
-        p4 = self.p4(p3_12)
-        return p4
+    Your model
 
 def target_category_loss(x, category_index, nb_classes):
     return torch.mul(x, F.one_hot(category_index, nb_classes))
@@ -147,7 +76,7 @@ class ActivationsAndGradients:
         self.activations = []
 
         target_layer.register_forward_hook(self.save_activation)
-        target_layer.register_backward_hook(self.save_gradient)
+        target_layer.register_full_backward_hook(self.save_gradient)
 
     def save_activation(self, module, input, output):
         self.activations.append(output)
@@ -205,12 +134,12 @@ class BaseCAM:
         grads = self.activations_and_grads.gradients[-1].cpu().data.numpy()[0, :]
         #weights = np.mean(grads, axis=(0))
         weights = self.get_cam_weights(input_tensor, target_category, activations, grads)
-        cam = np.zeros(activations.shape[1:], dtype=np.float32)
+        # cam = np.zeros(activations.shape[1:], dtype=np.float32)
         #
-        for i, w in enumerate(weights):
-             cam += w * activations[i, :]
+        # for i, w in enumerate(weights):
+        #     cam += w * activations[i, :]
         # cam = activations.dot(weights)
-        # cam = activations.dot(weights)
+        cam = activations.T.dot(weights)    #这个可能目前要更好一些
         # print(input_tensor.shape[1])
         # print(cam.shape)
         # x = np.arange(0, 247, 1)
