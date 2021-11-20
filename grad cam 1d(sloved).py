@@ -12,61 +12,11 @@ class swish(nn.Module):
 class Net1(nn.Module):
     def __init__(self):
         super(Net1, self).__init__()
-        self.p1_1 = nn.Sequential(nn.Conv1d(1, 50, kernel_size=20, stride=2),
-                                  nn.BatchNorm1d(50),
-                                  # nn.PReLU(50))
-                                  swish())
-        self.p1_2 = nn.Sequential(nn.Conv1d(50, 30, kernel_size=10, stride=2),
-                                  nn.BatchNorm1d(30),
-                                  # nn.PReLU(30))
-                                  swish())
-        self.p1_3 = nn.MaxPool1d(kernel_size=2, stride=2)
-        self.p2_1 = nn.Sequential(nn.Conv1d(1, 50, kernel_size=6, stride=1),
-                                  nn.BatchNorm1d(50),
-                                  # nn.PReLU(50))
-                                  swish())
-        self.p2_2 = nn.Sequential(nn.Conv1d(50, 40, kernel_size=6, stride=1),
-                                  nn.BatchNorm1d(40),
-                                  # nn.PReLU(40))
-                                  swish())
-        self.p2_3 = nn.MaxPool1d(kernel_size=2, stride=2)
-        self.p2_4 = nn.Sequential(nn.Conv1d(40, 30, kernel_size=6, stride=1),
-                                  nn.BatchNorm1d(30),
-                                  # nn.PReLU(30))
-                                  swish())
-        self.p2_5 = nn.Sequential(nn.Conv1d(30, 30, kernel_size=6, stride=2),
-                                  nn.BatchNorm1d(30),
-                                  # nn.PReLU(30))
-                                  swish())  # PRelu
-        self.p2_6 = nn.MaxPool1d(kernel_size=4, stride=2)
-        self.p2_7 = nn.Sequential(nn.Conv1d(30, 20, kernel_size=1, stride=2),
-                                  nn.BatchNorm1d(20),
-                                  swish())
-        # # self.p3_1 = nn.LSTM(27,60,batch_first=True)
-        self.p3_1 = nn.GRU(62, 100)
-        # # self.p3_2 = nn.LSTM(60,30,dropout=0.5,batch_first=True)
-        self.p3_2 = nn.GRU(100, 30, dropout=0.5)  # dropout=0.5
-        self.p3_3 = nn.Sequential(nn.AdaptiveAvgPool1d(1))
-        self.p4 = nn.Sequential(  # nn.Dropout(0.1),
-                  nn.Linear(20, 10))
-                 #nn.Softmax(dim=1))
+        
+        Your model
 
     def forward(self, x):
-        p1 = self.p1_3(self.p1_2(self.p1_1(x)))
-        p2 = self.p2_6(self.p2_5(self.p2_4(self.p2_3(self.p2_2(self.p2_1(x))))))
-        encode = torch.mul(p1, p2)
-        # p3 = self.p3_2(self.p3_1(encode))
-        p2_2 = self.p2_7(encode).permute(1, 0, 2)
-        p3_1, _ = self.p3_1(p2_2)
-        p3_2, _ = self.p3_2(p3_1)
-        p3_11 = p3_2.permute(1, 0, 2)  # 取得最后的一次输出
-        p3_12 = self.p3_3(p3_11).squeeze()
-        # p3_11 = h1.permute(1,0,2)
-        # p3 = self.p3(encode)
-        # p3 = p3.squeeze()
-        # p4 = self.p4(p3_11)  # LSTM的输入格式(seq_len, batch, input_size)
-        # p4 = self.p4(encode)
-        p4 = self.p4(p3_12)
+        
         return p4
 
 def target_category_loss(x, category_index, nb_classes):
@@ -197,7 +147,7 @@ class BaseCAM:
         cam = np.zeros(activations.shape[1:], dtype=np.float32)
         for i, w in enumerate(weights):
             cam += w * activations[i, :]
-        # cam = activations.dot(weights)
+        # cam = activations.T.dot(weights)    #这个可能目前要更好一些
         # print(input_tensor.shape[1])
         cam = resize_1d(cam, (input_tensor.shape[2]))
         cam = np.maximum(cam, 0)
