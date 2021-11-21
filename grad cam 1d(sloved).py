@@ -147,11 +147,11 @@ class BaseCAM:
         cam = np.zeros(activations.shape[1:], dtype=np.float32)
         for i, w in enumerate(weights):
             cam += w * activations[i, :]
-        # cam = activations.T.dot(weights)    #这个可能目前要更好一些
+        # cam = activations.T.dot(weights)    
         # print(input_tensor.shape[1])
         cam = resize_1d(cam, (input_tensor.shape[2]))
         cam = np.maximum(cam, 0)
-        heatmap = (cam - np.min(cam)) / (np.max(cam) - np.min(cam) + 1e-10)#归一化处理
+        heatmap = (cam - np.min(cam)) / (np.max(cam) - np.min(cam) + 1e-10)
         return heatmap
 class GradCAM(BaseCAM):
     def __init__(self, model, target_layer, use_cuda=False):
@@ -172,5 +172,5 @@ input_tensor = torch.tensor(input_tensor, dtype=torch.float32)
 output = net(input_tensor)
 import scipy.io as scio
 input_tensor = input_tensor.numpy().squeeze()
-dataNew = "G:\\研究生资料\\研二\\实践code(pytorch)\\datanew.mat"
+dataNew = "G:\\datanew.mat"
 scio.savemat(dataNew, mdict={'cam': output, 'data': input_tensor})
