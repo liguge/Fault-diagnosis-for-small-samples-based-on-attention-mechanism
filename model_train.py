@@ -14,7 +14,7 @@ def setup_seed(seed):
     torch.backends.cudnn.deterministic = True
 
 
-# 设置随机数种子
+#
 setup_seed(1)
 
 
@@ -109,12 +109,12 @@ class Net(nn.Module):
         p3_0 = self.p3_0(encode).permute(1, 0, 2)
         p3_2, _ = self.p3_1(p3_0)
         # p3_2, _ = self.p3_2(p3_1)
-        p3_11 = p3_2.permute(1, 0, 2)  # 取得最后的一次输出
+        p3_11 = p3_2.permute(1, 0, 2)  # 
         p3_12 = self.p3_3(p3_11).squeeze()
         # p3_11 = h1.permute(1,0,2)
         # p3 = self.p3(encode)
         # p3 = p3.squeeze()
-        # p4 = self.p4(p3_11)  # LSTM的输入格式(seq_len, batch, input_size)
+        # p4 = self.p4(p3_11)  # LSTM(seq_len, batch, input_size)
         # p4 = self.p4(encode)
         p4 = self.p4(p3_12)
         return p4
@@ -145,7 +145,7 @@ model = Net().to(device)
 # tb = program.TensorBoard()
 # tb.configure(argv=[None, '--logdir', 'logs'])
 # url = tb.launch()
-summary(model, input_size=(1, 1024))  # 输出模型具有的参数
+summary(model, input_size=(1, 1024))  
 # criterion = nn.CrossEntropyLoss()
 
 criterion = LSR()
@@ -202,7 +202,7 @@ for epoch in range(150):
             # print(scheduler.get_lr())
             train_loss += loss.item()
 
-            # 计算分类的准确率
+            
             _, pred = out.max(1)
             num_correct = (pred == label).sum().item()
             acc = num_correct / img.shape[0]
@@ -210,10 +210,10 @@ for epoch in range(150):
 
         losses.append(train_loss / len(train_loader))
         acces.append(train_acc / len(train_loader))
-        # 在测试集上检验效果
+        #
         eval_loss = 0
         eval_acc = 0
-        # net.eval() # 将模型改为预测模式
+        # net.eval() #
         model.eval()
         for img, label in test_loader:
             img = img.type(torch.FloatTensor)
@@ -224,9 +224,9 @@ for epoch in range(150):
             out = model(img)
             out = torch.squeeze(out).float()
             loss = criterion(out, label)
-            # 记录误差
+            # 
             eval_loss += loss.item()
-            # 记录准确率
+            # 
             _, pred = out.max(1)
             num_correct = (pred == label).sum().item()
             # print(pred, '\n\n', label)
@@ -244,9 +244,9 @@ for epoch in range(150):
             break
 endtime = time.time()
 dtime = endtime - starttime
-print("程序运行时间：%.8s s" % dtime)
+print("time：%.8s s" % dtime)
 torch.save(model.state_dict(), '\B0503_LSTM.pt')
 import pandas as pd
 
-pd.set_option('display.max_columns', None)  # 显示完整的列
-pd.set_option('display.max_rows', None)  # 显示完整的行
+pd.set_option('display.max_columns', None)  # 
+pd.set_option('display.max_rows', None)  # 
