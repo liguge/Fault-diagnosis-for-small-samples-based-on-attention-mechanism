@@ -4,7 +4,7 @@ https://doi.org/10.1016/j.measurement.2021.110242
 
 
 ![微信图片_20211204105938](https://user-images.githubusercontent.com/19371493/144694599-2e79190d-40cb-455e-95cf-a1da552cb707.png)
-![Uploading 微信图片_20211204105938.png…]()
+
 
 
 # If this project helps you, please cite:
