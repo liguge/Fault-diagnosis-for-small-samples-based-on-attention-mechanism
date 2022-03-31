@@ -11,7 +11,7 @@ https://doi.org/10.1016/j.measurement.2021.110242
 # If this project helps you, please cite:
 
 
-```python
+```html
 @article{ZHANG2022110242,  
 title = {Fault diagnosis for small samples based on attention mechanism},  
 journal = {Measurement},  
@@ -28,6 +28,7 @@ author = {Xin Zhang and Chao He and Yanping Lu and Biao Chen and Le Zhu and Li Z
 
 # Our other works
 
+```html
 @ARTICLE{9374403,  
 author={Luo, Hao and **He, Chao** and Zhou, Jianing and Zhang, Li},  
 journal={IEEE Access},   
@@ -39,6 +40,7 @@ pages={42013-42026},
 doi={10.1109/ACCESS.2021.3064962},  
 url = {https://ieeexplore.ieee.org/document/9374403},  
 }
+```
 
 # Environment
 
