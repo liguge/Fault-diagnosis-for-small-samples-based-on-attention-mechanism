@@ -11,6 +11,7 @@ https://doi.org/10.1016/j.measurement.2021.110242
 # If this project helps you, please cite:
 
 
+```python
 @article{ZHANG2022110242,  
 title = {Fault diagnosis for small samples based on attention mechanism},  
 journal = {Measurement},  
@@ -20,8 +21,9 @@ year = {2022},
 issn = {0263-2241},  
 doi = {https://doi.org/10.1016/j.measurement.2021.110242 },  
 url = {https://www.sciencedirect.com/science/article/pii/S0263224121011507},  
-author = {Xin Zhang and **Chao He** and Yanping Lu and Biao Chen and Le Zhu and Li Zhang}  
-}
+author = {Xin Zhang and Chao He and Yanping Lu and Biao Chen and Le Zhu and Li Zhang}  
+} 
+```
 
 
 # Our other works
