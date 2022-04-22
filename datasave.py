@@ -13,9 +13,9 @@ import scipy.signal
 from torch.utils import data as da
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.preprocessing import MinMaxScaler
-# from torch.utils.tensorboard import SummaryWriter
 from sklearn.model_selection import train_test_split
-#########数据载入模块################
+
+
 raw_num = 100
 class Data(object):
 
@@ -31,7 +31,6 @@ class Data(object):
             file = scio.loadmat('./data/{}'.format(file_list[i]))
             for k in file.keys():
                 file_matched = re.match('X\d{3}_DE_time', k)
-                #file_matched = re.match('unnamed', k)
                 if file_matched:
                     key = file_matched.group()
             data1 = np.array(file[key][0:102400])     #0:80624
