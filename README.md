@@ -8,6 +8,9 @@ The implementation of the paper [Fault diagnosis for small samples based on atte
 # Attention Block
 ![1-s2 0-S0263224121011507-gr5_lrg](https://user-images.githubusercontent.com/19371493/160417827-560103d1-0ebc-4340-bcba-c5977ba78bf7.jpg)
 
+# How does it work?
+
+![微信图片_20220422112054](https://user-images.githubusercontent.com/19371493/164589830-bd910b57-3e02-422e-9990-a1281d1963b0.png)
 
 
 # If this project helps you, please cite:
