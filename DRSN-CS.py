@@ -13,7 +13,7 @@ The implementation of the paper [Fault diagnosis for small samples based on atte
 ![微信图片_20220422112054](https://user-images.githubusercontent.com/19371493/164590358-4a2b1c84-20ee-4477-a217-0a2487170831.png)
 
 
-# If this project helps you, please cite:
+# If this project helps you, welcome to cite:
 
 
 ```html
