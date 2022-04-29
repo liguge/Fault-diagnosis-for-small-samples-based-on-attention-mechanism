@@ -13,7 +13,7 @@ The implementation of the paper [Fault diagnosis for small samples based on atte
 ![微信图片_20220422112054](https://user-images.githubusercontent.com/19371493/164590358-4a2b1c84-20ee-4477-a217-0a2487170831.png)
 
 
-# If this project helps you, welcome to cite:
+# If this project helps you, welcome to cite it:
 
 
 ```html
@@ -35,7 +35,7 @@ author = {Xin Zhang and Chao He and Yanping Lu and Biao Chen and Le Zhu and Li Z
 
 ```html
 @ARTICLE{9374403,  
-author={Luo, Hao and **He, Chao** and Zhou, Jianing and Zhang, Li},  
+author={Luo, Hao and He, Chao and Zhou, Jianing and Zhang, Li},  
 journal={IEEE Access},   
 title={Rolling Bearing Sub-Health Recognition via Extreme Learning Machine Based on Deep Belief Network Optimized by Improved Fireworks},   
 year={2021},  
