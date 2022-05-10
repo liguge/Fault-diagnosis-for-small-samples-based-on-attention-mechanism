@@ -4,7 +4,7 @@ import numpy as np
 from datasave import train_loader, test_loader
 from early_stopping import EarlyStopping
 from label_smoothing import LSR
-from 1D_Meta_ACON import MetaAconC
+from oneD_Meta_ACON import MetaAconC
 import time
 from torchsummary import summary
 def setup_seed(seed):
