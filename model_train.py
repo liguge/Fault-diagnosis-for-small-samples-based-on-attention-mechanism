@@ -96,7 +96,7 @@ class Net(nn.Module):
                                   MetaAconC(30))
         self.p2_6 = nn.MaxPool1d(2, 2)
         self.p3_0 = CoordAtt(30, 30)
-        self.p3_1 = nn.Sequential(nn.LSTM(124, 64, bidirectional=True))  #
+        self.p3_1 = nn.Sequential(nn.GRU(124, 64, bidirectional=True))  #
         # self.p3_2 = nn.Sequential(nn.LSTM(128, 512))
         self.p3_3 = nn.Sequential(nn.AdaptiveAvgPool1d(1))
         self.p4 = nn.Sequential(nn.Linear(30, 10))
