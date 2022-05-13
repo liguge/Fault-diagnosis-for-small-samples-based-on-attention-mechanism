@@ -1,13 +1,13 @@
 # DCA-BiGRU
 The pytorch implementation of the paper [Fault diagnosis for small samples based on attention mechanism](https://doi.org/10.1016/j.measurement.2021.110242)
 
-However, in fact, the title [Fault diagnosis for small samples based on interpretable improved space-channel attention mechanism and improved regularization algorithm](https://doi.org/10.1016/j.measurement.2021.110242) fits the research content of the paper better.
+However, in fact, the title [Fault diagnosis for small samples based on interpretable improved space-channel attention mechanism and improved regularization algorithms](https://doi.org/10.1016/j.measurement.2021.110242) fits the research content of the paper better.
 
 
 ![微信图片_20211204105938](https://user-images.githubusercontent.com/19371493/144694599-2e79190d-40cb-455e-95cf-a1da552cb707.png)
 
 
-# Attention Block
+# Attention Block（SCA）
 ![1-s2 0-S0263224121011507-gr5_lrg](https://user-images.githubusercontent.com/19371493/160417827-560103d1-0ebc-4340-bcba-c5977ba78bf7.jpg)
 
 # How does it work?
