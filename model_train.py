@@ -7,6 +7,7 @@ from label_smoothing import LSR
 from oneD_Meta_ACON import MetaAconC
 import time
 from torchsummary import summary
+from adabn import reset_bn, fix_bn
 def setup_seed(seed):
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
@@ -25,12 +26,12 @@ setup_seed(1)
 #     def forward(self, x):
 #         x = x * F.sigmoid(x)
 #         return x
-def reset_bn(module):
-    if issubclass(module.__class__, torch.nn.modules.batchnorm._BatchNorm):
-        module.track_running_stats = False
-def fix_bn(module):
-    if issubclass(module.__class__, torch.nn.modules.batchnorm._BatchNorm):
-        module.track_running_stats = True
+# def reset_bn(module):
+#     if issubclass(module.__class__, torch.nn.modules.batchnorm._BatchNorm):
+#         module.track_running_stats = False
+# def fix_bn(module):
+#     if issubclass(module.__class__, torch.nn.modules.batchnorm._BatchNorm):
+#         module.track_running_stats = True
 
 # class h_sigmoid(nn.Module):
 #     def __init__(self, inplace=True):
