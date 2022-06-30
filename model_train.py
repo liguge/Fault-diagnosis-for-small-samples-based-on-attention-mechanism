@@ -25,7 +25,12 @@ setup_seed(1)
 #     def forward(self, x):
 #         x = x * F.sigmoid(x)
 #         return x
-
+def reset_bn(module):
+    if issubclass(module.__class__, torch.nn.modules.batchnorm._BatchNorm):
+        module.track_running_stats = False
+def fix_bn(module):
+    if issubclass(module.__class__, torch.nn.modules.batchnorm._BatchNorm):
+        module.track_running_stats = True
 
 # class h_sigmoid(nn.Module):
 #     def __init__(self, inplace=True):
@@ -75,24 +80,24 @@ class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
         self.p1_1 = nn.Sequential(nn.Conv1d(1, 50, kernel_size=18, stride=2),
-                                  nn.BatchNorm1d(50, track_running_stats=False),
+                                  nn.BatchNorm1d(50),
                                   MetaAconC(50))
         self.p1_2 = nn.Sequential(nn.Conv1d(50, 30, kernel_size=10, stride=2),
-                                  nn.BatchNorm1d(30, track_running_stats=False),
+                                  nn.BatchNorm1d(30),
                                   MetaAconC(30))
         self.p1_3 = nn.MaxPool1d(2, 2)
         self.p2_1 = nn.Sequential(nn.Conv1d(1, 50, kernel_size=6, stride=1),
-                                  nn.BatchNorm1d(50, track_running_stats=False),
+                                  nn.BatchNorm1d(50),
                                   MetaAconC(50))
         self.p2_2 = nn.Sequential(nn.Conv1d(50, 40, kernel_size=6, stride=1),
-                                  nn.BatchNorm1d(40, track_running_stats=False),
+                                  nn.BatchNorm1d(40),
                                   MetaAconC(40))
         self.p2_3 = nn.MaxPool1d(2, 2)
         self.p2_4 = nn.Sequential(nn.Conv1d(40, 30, kernel_size=6, stride=1),
-                                  nn.BatchNorm1d(30, track_running_stats=False),
+                                  nn.BatchNorm1d(30),
                                   MetaAconC(30))
         self.p2_5 = nn.Sequential(nn.Conv1d(30, 30, kernel_size=6, stride=2),
-                                  nn.BatchNorm1d(30, track_running_stats=False),
+                                  nn.BatchNorm1d(30),
                                   MetaAconC(30))
         self.p2_6 = nn.MaxPool1d(2, 2)
         self.p3_0 = CoordAtt(30, 30)
@@ -180,6 +185,7 @@ for epoch in range(150):
         train_loss = 0
         train_acc = 0
         model.train()
+        model.apply(fix_bn)
         for img, label in train_loader:
             img = img.float()
             img = img.to(device)
@@ -213,8 +219,8 @@ for epoch in range(150):
         #
         eval_loss = 0
         eval_acc = 0
-        # net.eval() #
         model.eval()
+        model.apply(reset_bn)
         for img, label in test_loader:
             img = img.type(torch.FloatTensor)
             img = img.to(device)
