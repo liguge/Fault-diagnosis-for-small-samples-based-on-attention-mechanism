@@ -3,6 +3,7 @@ The pytorch implementation of the paper [Fault diagnosis for small samples based
 
 **However, in fact, the title [Fault diagnosis for small samples based on interpretable improved space-channel attention mechanism and improved regularization algorithms](https://doi.org/10.1016/j.measurement.2021.110242) fits the research content of the paper better.**
 
+The dataset comes from 12khz, 1hp
 
 ![微信图片_20211204105938](https://user-images.githubusercontent.com/19371493/144694599-2e79190d-40cb-455e-95cf-a1da552cb707.png)
 
