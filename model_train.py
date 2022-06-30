@@ -186,7 +186,6 @@ for epoch in range(150):
         train_loss = 0
         train_acc = 0
         model.train()
-        model.apply(fix_bn)
         for img, label in train_loader:
             img = img.float()
             img = img.to(device)
@@ -245,7 +244,7 @@ for epoch in range(150):
               .format(epoch, train_loss / len(train_loader), train_acc / len(train_loader),
                       eval_loss / len(test_loader), eval_acc / len(test_loader)))
         early_stopping(eval_loss / len(test_loader), model)
-
+        model.apply(fix_bn)
         if early_stopping.early_stop:
             print("Early stopping")
             break
