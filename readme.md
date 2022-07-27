@@ -8,11 +8,11 @@ The dataset comes from 12khz, 1hp
 ![微信图片_20211204105938](https://user-images.githubusercontent.com/19371493/144694599-2e79190d-40cb-455e-95cf-a1da552cb707.png)
 
 # Contributions:
-**1. 1D-signal attention mechanism**
-**2. AMSGradP**
-**3. 1D-Meta-ACON**
-**4. At the beginning, I found that many model designs did not connect GAP operations after BIGRU/BILSTM, which were basically routine operations. I found that GAP works very well.**
-**5. 1D-Grad-CAM**
+1. ** 1D-signal attention mechanism**
+3. ** AMSGradP**
+4. ** 1D-Meta-ACON**
+5. ** At the beginning, I found that many model designs did not connect GAP operations after BIGRU/BILSTM, which were basically routine operations. I found that GAP works very well.**
+6. ** 1D-Grad-CAM**
 
 # Attention Block（SCA）
 ![1-s2 0-S0263224121011507-gr5_lrg](https://user-images.githubusercontent.com/19371493/160417827-560103d1-0ebc-4340-bcba-c5977ba78bf7.jpg)
