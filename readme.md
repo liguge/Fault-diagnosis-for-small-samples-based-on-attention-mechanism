@@ -9,10 +9,10 @@ The dataset comes from 12khz, 1hp
 
 # Contributions:
 1. **1D-signal attention mechanism**
-3. **AMSGradP**
+3. **AMSGradP** [code](https://github.com/liguge/AMSGradP-for-intelligent-fault-diagnosis)
 4. **1D-Meta-ACON**
 5. **At the beginning, I found that many model designs did not connect GAP operations after BIGRU/BILSTM, which were basically routine operations. I found that GAP works very well.**
-6. **1D-Grad-CAM**
+6. **1D-Grad-CAM**[code](https://github.com/liguge/1D-Grad-CAM-for-interpretable-intelligent-fault-diagnosis)
 
 # Attention Block（SCA）
 ![1-s2 0-S0263224121011507-gr5_lrg](https://user-images.githubusercontent.com/19371493/160417827-560103d1-0ebc-4340-bcba-c5977ba78bf7.jpg)
