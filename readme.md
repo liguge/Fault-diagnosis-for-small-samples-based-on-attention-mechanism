@@ -11,7 +11,7 @@ The dataset comes from 12khz, 1hp
 1. **1D-signal attention mechanism** [[code](https://github.com/liguge/Fault-diagnosis-for-small-samples-based-on-attention-mechanism/blob/main/oneD_CS_attention.py)]
 2. **AMSGradP**   [[code](https://github.com/liguge/AMSGradP-for-intelligent-fault-diagnosis)]
 3. **1D-Meta-ACON** [[code](https://github.com/liguge/Fault-diagnosis-for-small-samples-based-on-attention-mechanism/blob/main/oneD_Meta_ACON.py)]
-4. **At the beginning, I found that many model designs did not connect GAP operations after BIGRU/BILSTM, which were basically routine operations. I found that GAP works very well.**  [[code](https://github.com/liguge/Fault-diagnosis-for-small-samples-based-on-attention-mechanism/blob/beb35522b283853aa12390721136583bb09821bf/model_train.py#L119)]
+4. **At the beginning, I found that many model designs did not connect GAP operations after BiGRU/BiLSTM, which were basically routine operations. I found that GAP works very well.**  [[code](https://github.com/liguge/Fault-diagnosis-for-small-samples-based-on-attention-mechanism/blob/beb35522b283853aa12390721136583bb09821bf/model_train.py#L119)]
 5. **1D-Grad-CAM++** [[code](https://github.com/liguge/1D-Grad-CAM-for-interpretable-intelligent-fault-diagnosis)]
 6. **AdaBN** [[code](https://github.com/liguge/Fault-diagnosis-for-small-samples-based-on-attention-mechanism/blob/main/adabn.py)]
 # Attention Block（SCA）
