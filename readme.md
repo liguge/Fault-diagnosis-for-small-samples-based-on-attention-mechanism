@@ -1,7 +1,11 @@
 # DCA-BiGRU
-The pytorch implementation of the paper [Fault diagnosis for small samples based on attention mechanism](https://doi.org/10.1016/j.measurement.2021.110242)
+The pytorch implementation of the paper [Fault diagnosis for small samples based on attention mechanism](https://doi.org/10.1016/j.measurement.2021.110242
+        
+        )
 
-**However, in fact, the title [Fault diagnosis for small samples based on interpretable improved space-channel attention mechanism and improved regularization algorithms](https://doi.org/10.1016/j.measurement.2021.110242) fits the research content of the paper better.**
+**However, in fact, the title [Fault diagnosis for small samples based on interpretable improved space-channel attention mechanism and improved regularization algorithms](https://doi.org/10.1016/j.measurement.2021.110242
+        
+        ) fits the research content of the paper better.**
 
 The dataset comes from 12khz, 1hp
 
@@ -43,16 +47,15 @@ author = {Xin Zhang and Chao He and Yanping Lu and Biao Chen and Le Zhu and Li Z
 # Our other works
 
 ```html
-@ARTICLE{9374403,  
-author={Luo, Hao and He, Chao and Zhou, Jianing and Zhang, Li},  
-journal={IEEE Access},   
-title={Rolling Bearing Sub-Health Recognition via Extreme Learning Machine Based on Deep Belief Network Optimized by Improved Fireworks},   
-year={2021},  
-volume={9},  
-number={},  
-pages={42013-42026},  
-doi={10.1109/ACCESS.2021.3064962},  
-url = {https://ieeexplore.ieee.org/document/9374403},  
+@article{HE,  
+title = {Physics-informed interpretable wavelet weight initialization and balanced dynamic adaptive threshold for intelligent fault diagnosis of rolling bearings},  
+journal = {Journal of Manufacturing Systems},  
+volume = {70},  
+pages = {579-592},  
+year = {2023},  
+issn = {1878-6642},  
+doi = {https://doi.org/10.1016/j.jmsy.2023.08.014},  
+author = {Chao He and Hongmei Shi and Jin Si and Jianbo Li}   
 }
 ```
 
