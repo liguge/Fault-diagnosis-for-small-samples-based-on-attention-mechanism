@@ -26,14 +26,15 @@ The dataset comes from 12khz, 1hp
 
 
 ```html
-@article{He_2024, 
-title={Interpretable modulated differentiable STFT and physics-informed balanced spectrum metric for freight train wheelset bearing cross-machine transfer fault diagnosis under speed fluctuations}, 
-volume={62}, 
-DOI={10.1016/j.aei.2024.102568}, 
-journal={Advanced Engineering Informatics}, 
-author={He, Chao and Shi, Hongmei and Li, Ruixin and Li, Jianbo and Yu, ZuJun}, 
-year={2024}, 
-pages={102568} 
+@article{he2025pifcapsule,
+  title={Human prior knowledge-embedded first-layer interpretable paradigm for rail transit vehicle human-computer collaboration monitoring},
+  author={He, Chao and Shi, Hongmei and Liao, Jing-Xiao and Liu, Qiuhai and Li, Jianbo and Yu, Zujun},
+  journal={Journal of Industrial Information Integration},
+  volume={51},
+  pages={101068},
+  year={2025},
+  doi={10.1016/j.jii.2026.101068},
+  publisher={Elsevier}
 }
 ```
 
@@ -41,16 +42,15 @@ pages={102568}
 # Our other works
 
 ```html
-@article{HE,  
-title = {Physics-informed interpretable wavelet weight initialization and balanced dynamic adaptive threshold for intelligent fault diagnosis of rolling bearings},  
-journal = {Journal of Manufacturing Systems},  
-volume = {70},  
-pages = {579-592},  
-year = {2023},  
-issn = {1878-6642},  
-doi = {https://doi.org/10.1016/j.jmsy.2023.08.014},  
-author = {Chao He and Hongmei Shi and Jin Si and Jianbo Li}   
-}
+@article{HE2023110846,
+title = {IDSN: A one-stage interpretable and differentiable STFT domain adaptation network for traction motor of high-speed trains cross-machine diagnosis},
+journal = {Mechanical Systems and Signal Processing},
+volume = {205},
+pages = {110846},
+year = {2023},
+doi = {https://doi.org/10.1016/j.ymssp.2023.110846},
+author = {Chao He and Hongmei Shi and Jianbo Li},
+} 
 ```
 
 # Environment
